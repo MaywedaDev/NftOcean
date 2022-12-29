@@ -46,3 +46,10 @@ body{
 
     background: $color-primary;
 }
+
+h5{
+    .word:nth-child(2){
+        color: $color-primary;
+    }
+}
+

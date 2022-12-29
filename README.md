@@ -1,4 +1,4 @@
-# nftdev
+# NftOcean
 
 ## Project setup
 ```

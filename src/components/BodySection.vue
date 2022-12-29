@@ -6,7 +6,7 @@
             <div class="title">
                 <h4><span>Create</span> and <span>Sell</span> Your own <span>Nfts</span></h4>
                 </div>
-            <div class="cards d-flex flex-wrap justify-content-between px-md-5 mx-4">
+            <div class="cards d-flex flex-wrap justify-content-between">
                 <div class="imgbox my-2 mx-auto"><img :src='images.art' alt=""></div>
                 <div class="imgbox my-2 mx-auto"><img :src='images.setup' alt=""></div>
                 <div class="imgbox my-2 mx-auto"><img :src='images.mint' alt=""></div>
@@ -15,14 +15,14 @@
     </div>
     <div class="creators">
         <cards-wrapper title="Top Creators" :more="false">
-            <div class="d-flex flex-wrap justify-content-center gap-20 px-md-5 mx-4">
-                <content-card v-for="(el, index) in creators" :img="el.img" :title="el.name" :value="el.value" :key="index"></content-card>
+            <div class="d-flex flex-wrap justify-content-center justify-content-md-between gap-20 px-md-5 mx-4">
+                <content-card class="mx-auto mx-lg-0" v-for="(el, index) in creators" :img="el.img" :title="el.name" :value="el.value" :key="index"></content-card>
             </div>
         </cards-wrapper>
     </div>
     <div class="categories">
         <cards-wrapper title="Categories">
-            <div class="d-flex flex-wrap gap-20 justify-content-center px-md-5 mx-4">
+            <div class="d-flex flex-wrap gap-20 justify-content-center justify-content-md-between px-md-5 mx-4">
                 <content-card category title="3D Artworks" :img="images.rect119"></content-card>
                 <content-card category title="Illustation Character" :img="images.rect125"></content-card>
                 <content-card category title="Paint Art" :img="images.rect124"></content-card>
@@ -49,6 +49,8 @@ import * as images from '@/assets/images/images';
 import NftSlider from './NftSlider.vue'
 import ContentCard from './ContentCard.vue';
 import creators from '@/data/creators'
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 
 export default defineComponent({
@@ -59,7 +61,13 @@ export default defineComponent({
         ContentCard
     },
     setup() {
-        onMounted(() => console.log(images.hpp2))
+        gsap.registerPlugin(ScrollTrigger)
+        onMounted(() => {
+            gsap.set('.content-card, .cards .imgbox', {opacity: 0, y: 40})
+            ScrollTrigger.batch(".content-card, .cards .imgbox", {
+                onEnter: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: {each: 0.5}})
+            })
+        })
         
         return{
             images,
@@ -93,7 +101,11 @@ export default defineComponent({
 }
 
 .gap-20{
-    gap: 20px;
+    gap: 40px;
+
+    @media screen and (max-width: 900px) {
+        justify-content: center;
+    }
 }
 
 .setup{

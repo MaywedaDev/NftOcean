@@ -1,6 +1,6 @@
 <template>
     <div class="footer px-3 px-md-5 py-3">
-        <div class="content d-md-flex">
+        <div class="content d-md-flex gap-10">
             <div class="signup px-xl-3">
                 <div class="imgbox"></div>
                 <p>Be the first to know about the latest updates in the market</p>
@@ -9,29 +9,29 @@
                     <button class="btn">Sign Up</button>
                 </div>
             </div>
-            <div class="links d-flex px-xl-3 ">
-            <ul>
+            <div class="links row px-3 px-xl-3 gap-20">
+            <ul class="mx-0 px-0 col-auto">
                 <h6>Solutions</h6>
                 <li>How it Works</li>
                 <li>NFT Market</li>
                 <li>Token</li>
                 <li>Discover</li>
             </ul>
-            <ul>
+            <ul class="mx-0 px-0 col-auto">
                 <h6>Company</h6>
                 <li>About</li>
                 <li>Careers</li>
                 <li>Ventures</li>
                 <li>Grant</li>
             </ul>
-            <ul>
+            <ul class="mx-0 px-0 col-auto">
                 <h6>Resources</h6>
                 <li>Partner</li>
                 <li>Taxes</li>
                 <li>Platform Status</li>
                 <li>Docs</li>
             </ul>
-            <ul>
+            <ul class="mx-0 px-0 col-auto">
                 <h6>Quick Links</h6>
                 <li>FAQ</li>
                 <li>Security</li>
@@ -125,9 +125,17 @@
         gap: 10px;
     }
 
+    .gap-20{
+        gap: 20px
+    }
+
     @media screen and (max-width: 768px){
         .links{
             flex-wrap: wrap;
+
+            ul{
+                min-width: calc(50% - 20px);
+            }
         }
 
         .socials{
