@@ -74,7 +74,7 @@ export default defineComponent({
     }
 
     const play = () => {
-      console.log(sidebar.value)
+      //console.log(sidebar.value)
       tl.timeScale(1).play()
     }
 
@@ -85,7 +85,7 @@ export default defineComponent({
     const setTimeLine = () => {
       let pageWidth = window.innerWidth
 
-      console.log(pageWidth)
+      //console.log(pageWidth)
 
       tl.progress(0).kill()
       tl.progress(1).kill()
@@ -117,49 +117,8 @@ export default defineComponent({
       }
     }
 
-    const addMediaQueryWatcher = (mediaQuery: any, layoutChangedCallback: any) => {
-      var mql = window.matchMedia(mediaQuery);
-        mql.addListener(function (e) {
-        return layoutChangedCallback(e.matches);
-      });
-      layoutChangedCallback(mql.matches);
-    }
-
     onMounted(() => {
         window.addEventListener('scroll', toggleBar)
-
-        // addMediaQueryWatcher("(max-width: 768px)", (matches: any) => {
-        //   tl.progress(0).kill()
-        //   tl.progress(1).kill()
-
-        //   if (matches){
-        //     tl = gsap.timeline({paused: true, reversed: true})
-        //     .from('.offcanvas-body a.nav-link',{
-        //       y: 40,
-        //       opacity: 0,
-        //       stagger: {
-        //         amount: 2.5
-        //       }
-        //     })
-        //     .from('.offcanvas-body li.rounded-circle', {
-        //       y: 20,
-        //       opacity: 0,
-        //       stagger: {
-        //         amount: 1.2
-        //       }
-        //     })
-        //     .from(".offcanvas-body button", {
-        //       opacity: 0
-        //     })
-        //   } else {
-        //     tl = gsap.timeline({paused: true, reversed: true})
-        //     .to('.offcanvas-body a.nav-link', {
-        //       y: 0,
-        //       opacity: 1
-        //     })
-        //   }
-        // })
-
         setTimeLine();
 
         window.addEventListener('resize', setTimeLine)

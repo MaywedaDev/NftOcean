@@ -7,9 +7,9 @@
                 <h4><span>Create</span> and <span>Sell</span> Your own <span>Nfts</span></h4>
                 </div>
             <div class="cards d-flex flex-wrap justify-content-between">
-                <div class="imgbox my-2 mx-auto"><img :src='images.art' alt=""></div>
-                <div class="imgbox my-2 mx-auto"><img :src='images.setup' alt=""></div>
-                <div class="imgbox my-2 mx-auto"><img :src='images.mint' alt=""></div>
+                <div class="imgbox my-4 mx-auto"><img :src='images.art' alt=""></div>
+                <div class="imgbox my-4 mx-auto"><img :src='images.setup' alt=""></div>
+                <div class="imgbox my-4 mx-auto"><img :src='images.mint' alt=""></div>
             </div>
         </div>
     </div>

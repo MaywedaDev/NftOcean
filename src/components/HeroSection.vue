@@ -2,16 +2,18 @@
 <div class="hero-section px-xl-5">
   <div class="hero px-5 my-5 w-100 d-flex flex-wrap">
     <div class="col-md-8 col-12 px-md-4 py-4 row">
-        <div class="col-md-10 header"><span>Discover</span>, <span>Collect</span> and <span>Sell</span> Extraordinary <span>Artworks</span> & <span>NFT</span> Collections.</div>
-      <p class="text-light col-12">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, aperiam quidem a doloremque minima culpa eligendi corrupti, tempora modi sapiente eius atque omnis odio ullam.</p>
+        <div class="col-md-10 header px-0"><span>Discover</span>, <span>Collect</span> and <span>Sell</span> Extraordinary <span>Artworks</span> & <span>NFT</span> Collections.</div>
+      <p class="text-light col-12 px-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, aperiam quidem a doloremque minima culpa eligendi corrupti, tempora modi sapiente eius atque omnis odio ullam.</p>
       <button class="text-light fw-semibold"><span>Get Started</span> <font-awesome-icon icon="fa-solid fa-arrow-right-long" /></button>
-      <ul class="sponsors d-flex mt-5">
-        <span class="fs-5 fw-semibold" ref="sponsors">Supported by</span>
-        <li class="mx-1"><img :src="images.binance" alt=""></li>
-        <li class="mx-1"><img :src="images.huobi" alt=""></li>
-        <li class="mx-1"><img :src="images.opensea" alt=""></li>
-        <li class="mx-1"><img :src="images.cmc" alt=""></li>
-      </ul>
+      <div class="sponsors d-flex mt-5 flex-wrap">
+        <span class="fs-5 fw-semibold mb-3" ref="sponsors">Supported by</span>
+        <ul class="d-flex px-0">
+          <li class="mx-md-1 mx-3"><img :src="images.binance" alt=""></li>
+          <li class="mx-md-1 mx-3"><img :src="images.huobi" alt=""></li>
+          <li class="mx-md-1 mx-3"><img :src="images.opensea" alt=""></li>
+          <li class="mx-md-1 mx-3"><img :src="images.cmc" alt=""></li>
+        </ul>
+      </div>
     </div>
     <div class="col-md-4 mx-md-0 mx-auto">
       <div class="card-shadow" ref="card">
@@ -69,7 +71,7 @@ export default defineComponent({
         duration: 1.5,
         ease: "sine.inOut"
       })
-      .to(".sponsors span", {
+      .to(sponsors.value, {
         "--cover-width": "0",
         duration: 0.7
       }, '-=1.5')
@@ -94,7 +96,8 @@ export default defineComponent({
 
     return{
       images,
-      card
+      card,
+      sponsors
     }
   }
   
@@ -107,6 +110,12 @@ export default defineComponent({
 .hero-section{
     overflow-y: hidden;
     .hero{
+      .col-12{
+        @media screen and (max-width: 768px){
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
       .header{
         --cover-width: 100%;
         color: #fff;
