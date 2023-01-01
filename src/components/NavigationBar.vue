@@ -1,7 +1,10 @@
 <template>
     <nav :class="`navbar navbar-expand-md sticky-top ${ showbar ? 'show' : 'hide'} py-0`" aria-label="Offcanvas navbar large" ref="navbar">
     <div class="container-fluid px-md-5 fw-semibold">
-      <a class="navbar-brand" href="#"><div class="imgbox"></div></a>
+      <a class="navbar-brand" href="#">
+        <div class="imgbox">
+          <img :src="images.logo" alt="">
+        </div></a>
       <button class="navbar-toggler" type="button" @click="play" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -51,6 +54,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, onUnmounted, Ref, ref } from 'vue'
 import gsap from 'gsap'
+import * as images from '../assets/images/images'
 
 export default defineComponent({
   setup() {
@@ -134,7 +138,8 @@ export default defineComponent({
       showbar,
       sidebar,
       play,
-      back
+      back,
+      images
     }
   },
 })
@@ -241,10 +246,17 @@ export default defineComponent({
     }
 
   .imgbox{
-    background: white;
     height: 36px;
     width: 36px;
     border-radius: 5px;
+    overflow: hidden;
+
+    img{
+      width: 150%;
+      object-fit: cover;
+      object-position: 25% 25%;
+      transform: translate(-10px, -6px);
+    }
   }
 
   .navbar-toggler{

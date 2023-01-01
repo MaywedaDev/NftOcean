@@ -2,7 +2,9 @@
     <div class="footer px-3 px-md-5 py-3">
         <div class="content d-md-flex gap-10">
             <div class="signup px-xl-3">
-                <div class="imgbox"></div>
+                <div class="imgbox">
+                    <img :src="images.logo" alt="">
+                </div>
                 <p>Be the first to know about the latest updates in the market</p>
                 <div class="d-flex">
                     <input type="text" class="form-control" placeholder="Your e-mail here">
@@ -53,6 +55,20 @@
     </div>
 </template>
 
+<script>
+import { defineComponent } from 'vue'
+import * as images from '../assets/images/images'
+
+export default defineComponent({
+    setup() {
+        return{
+            images
+        }
+    },
+})
+</script>
+
+
 <style lang="scss" scoped>
 
 .footer{
@@ -65,10 +81,25 @@
         }
 
         .imgbox{
-            background: white;
-            height: 40px;
-            width: 40px;
+            height: 36px;
+            width: 36px;
             border-radius: 5px;
+            position: relative;
+
+            img{
+            width: 150%;
+            object-fit: cover;
+            object-position: 25% 25%;
+            transform: translate(-10px, -6px);
+            }
+
+            &:before{
+                content: "NftOcean";
+                position: absolute;
+                font-size: 0.6em;
+                bottom: -12px;
+                font-weight: bold;
+            }
         }
     }
 

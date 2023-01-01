@@ -26,6 +26,7 @@ import azk112 from './e1800fe1e6dad6bc366ffbdae863e0ca.jpg'
 import cp3 from './bf733e8d5a0c647944a291e898a06330.jpg'
 import cp4 from './ade546aebfdfe39d719a06f5d2ac9ec1.jpg'
 import gd1 from './682a1e90036d56f3446451fc1e9acc9c.jpg'
+import logo from './logo-1.png'
 
 export { babyelon,
          binance,
@@ -54,4 +55,5 @@ export { babyelon,
          azk112,
          azk829,
          sp983,
-         ddl8697 }
+         ddl8697,
+         logo }
